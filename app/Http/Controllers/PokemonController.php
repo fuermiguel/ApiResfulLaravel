@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Pokemon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PokemonController extends Controller
 {
@@ -14,7 +15,8 @@ class PokemonController extends Controller
      */
     public function index()
     {
-        //
+        $pokemons = DB::table('pokemon')->get();
+        
     }
 
     /**

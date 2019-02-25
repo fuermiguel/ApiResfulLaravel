@@ -16,3 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//Route::resource('pokemon','PokemonController');
+//Route::apiResource('pokemon','PokemonController');
+Route::apiResource('pokemon','PokemonController')->only(['index','show']);
