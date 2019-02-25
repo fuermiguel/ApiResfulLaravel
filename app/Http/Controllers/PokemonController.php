@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\DB;
 
 class PokemonController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth.basic.once');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +20,8 @@ class PokemonController extends Controller
     public function index()
     {
         $pokemons = DB::table('pokemon')->get();
-        
+        return $pokemons;
+
     }
 
     /**
@@ -46,9 +51,9 @@ class PokemonController extends Controller
      * @param  \App\Pokemon  $pokemon
      * @return \Illuminate\Http\Response
      */
-    public function show(Pokemon $pokemon)
+    public function show($id)
     {
-        //
+        return Pokemon::find($id);
     }
 
     /**
